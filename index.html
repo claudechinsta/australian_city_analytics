@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset = "UTF-8">
+    <title>Tweets Knowledge Base - Analysis of Tweets activity in Victoria - SA2</title>
+</head>
+
+<!--<script src="js/jquery.min.js"></script>-->
+<script src="js/jquery-3.0.0.js"></script>
+<script src="js/jquery-migrate-3.0.0.js"></script>
+
+<link href="css/bootstrap.css" rel="stylesheet"/>
+<link href="css/menu_btn_popup.css" rel="stylesheet">
+
+<!-- Import the Google Font Stylesheet -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+<!-- Mapbox GL JS -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+
+<!-- Chart JS -->
+<script src="js/Chart.bundle.min.js"></script>
+
+<!-- CouchDB, nano.js -->
+<script type="text/javascript" src="js/couchdb.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/mapboxControl.js"></script>
+
+<style type="text/css">
+    #wrapper {
+        position: relative;
+    }
+    #mapLayout{
+        float: right;
+        height: 100%;
+        width:100%;
+        position: absolute;
+    }
+    .marker {
+        display: block;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+    }
+    .mapboxgl-popup {
+        font: 12px/20px 'pt sans', Arial, Helvetica, sans-serif;
+    }
+    .mapboxgl-popup-content {
+        padding: 0 20px;
+    }
+</style>
+
+
+<body>
+<script src="bundle.js"></script>
+<!-- Map Container -->
+<div id="mapLayout">
+    <!-- Deprecated Leaflet Method-->
+    <script language="javascript">
+        // MapBox API Initialization
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hpbnN0YSIsImEiOiJjaW15ZnFyN3cwNDN5dm9sdWJ2am5xNmdlIn0.vG5mqJyfSX3JBSQ3UQ6ORw';
+        let initZoom = 6.5;
+        let initCenter = [145.2117, -36.7828];
+        // Initialize the map
+        let map = new mapboxgl.Map({
+            container: 'mapLayout',
+            center: initCenter,
+            zoom: initZoom,
+            style: 'mapbox://styles/mapbox/streets-v9',
+        });
+        window.onload = init(map);
+    </script>
+</div>
+
+<!--MENU CONTENT-->
+<div id="menu-box">
+    <div id="menuSubBtn">
+        <h5>Area</h5>
+        <button id="menuTopic1" class="btn btn-default" onclick="location='./index.html'">SA2</button>
+        <button id="menuTopic2" class="btn btn-default" onclick="location='./index_2.html'">LGA</button>
+        <h5>Switch Layers</h5>
+        <button id="menuSwitchLayer1" class="btn btn-default" onclick="toggleBound(0)">Source</button>
+        <button id="menuSwitchLayer2" class="btn btn-default" onclick="toggleBound(1)">Time</button>
+        <button id="menuSwitchLayer3" class="btn btn-default" onclick="toggleBound(2)">Topics</button>
+        <button id="menuSwitchLayer4" class="btn btn-default" onclick="toggleBound(3)">Sentiment</button>
+        <h5>View</h5>
+        <button id="menuViewM" class="btn btn-default" onclick="flyIn()">Melbourne</button>
+        <button id="menuViewV" class="btn btn-default" onclick="flyOut()">Victoria</button>
+    </div>
+</div>
+
+<!-- add html elements to the legend !-->
+<div id='legend' class='legend'>
+    <h4>Major Source</h4>
+    <div><span style='background-color: #f05bff'></span>Instagram</div>
+    <div><span style='background-color: #ffe600'></span>Android&Iphone</div>
+</div>
+<pre id='info'></pre>
+
+</body>
+</html>

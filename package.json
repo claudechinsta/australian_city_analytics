@@ -1,0 +1,23 @@
+{
+  "name": "ccc2017-web-app",
+  "version": "1.0.0",
+  "description": "This is the front-end of this peoject Author: Claude Chen Created Date: 28 April 2017",
+  "main": "main.js",
+  "scripts": {
+    "watchify": "watchify main.js -o bundle.js",
+    "http": "watch-http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://claudeChen@bitbucket.org/ccc2017-team20/analytics.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/ccc2017-team20/analytics#readme",
+  "dependencies": {
+    "browserify": "^14.3.0",
+    "http-server": "^0.10.0",
+    "watch-http-server": "^0.7.6",
+    "watchify": "^3.9.0"
+  }
+}

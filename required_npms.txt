@@ -1,0 +1,34 @@
+watchify
+browserify
+watch-http-server
+http-server
+
+{
+  "name": "ccc_project",
+  "version": "1.0.0",
+  "description": "Cluster Cloud Web Front",
+  "main": "main.js",
+  "scripts": {
+    "build": "browserify main.js -o bundle.js && watch-http-server",
+    "watchify": "watchify main.js -o bundle.js",
+    "http": "watch-http-server",
+    "http-server": "http-server -a 0.0.0.0 -p 8080"
+  },
+  "author": "Chinsta",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "browserify": "^14.3.0",
+    "express": "^4.15.2",
+    "felix-couchdb": "^1.0.8",
+    "http-server": "^0.10.0",
+    "jquery": "^3.2.1",
+    "nano": "^6.2.0",
+    "node-couchdb": "^1.1.1",
+    "path": "^0.12.7",
+    "uniq": "^1.0.1",
+    "watchify": "^3.9.0",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
